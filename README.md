@@ -53,6 +53,18 @@ To get a `key`, check if `new_cache` contains key, and if so, return it.
 If not, check if it is in `old_cache` and if so, move that value to `new_cache`, and increment `size`.
 If `size > max`, move the `old_cache = new_cache`, reset `size = 0`, and initialize a new `new_cache={}`
 
+## complexity
+
+Writes are O(1) on average, like a hash table.
+
+When implemented in a garbage collected language, the old cache is thrown away when the new cache is
+full. To better manage memory usage, it could also be implemented as two fixes sized hash tables.
+In this case, instead of discarding the old cache, it would be zeroed. This means at most every N
+writes when the caches are rotated, that write will require N operations (to clear the old cache)
+
+This still averages out to O(1) but it does cost O(N) but only every N writes (except for updates)
+so N/N is still 1.
+
 ## HashLRU (max) => lru
 
 initialize a lru object.
