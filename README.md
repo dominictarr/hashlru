@@ -31,6 +31,9 @@ and it's also very easy to verify it's correctness.
 This algorithm does not give you an ordered list of the N most recently used items,
 but you do not really need that! The property of dropping the lest recent items is still preserved.
 
+see a [benchmark](https://github.com/dominictarr/bench-lru) of this against
+the other LRU implementations on npm.
+
 ## example
 
 ``` js
