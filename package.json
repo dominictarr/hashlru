@@ -1,6 +1,6 @@
 {
   "name": "hashlru",
-  "description": "",
+  "description": "simpler faster substitute for LRU",
   "version": "1.0.1",
   "homepage": "https://github.com/dominictarr/hashlru",
   "repository": {
