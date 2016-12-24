@@ -15,7 +15,10 @@ module.exports = function (max) {
     get: function (key) {
       var v = cache[key]
       if(v) return v
-      if(v = _cache[key]) update(key, v)
+      if(v = _cache[key]) {
+        update(key, v)
+        return v
+      }
     },
     set: function (key, value) {
       if(cache[key]) cache[key] = value
