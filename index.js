@@ -13,6 +13,7 @@ module.exports = function (max) {
 
   return {
     get: function (key) {
+      if (!cache.hasOwnProperty(key) && !_cache.hasOwnProperty(key)) return
       var v = cache[key]
       if(v) return v
       if(v = _cache[key]) {
