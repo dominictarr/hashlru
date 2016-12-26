@@ -4,7 +4,7 @@ module.exports = function (max, layers) {
   var size = 0, layers = []
 
   for(var layer = length; layer--;)
-    layers[layer] = {}
+    layers[layer] = Object.create(null)
 
   layer = layers[cursor]
 
@@ -12,7 +12,7 @@ module.exports = function (max, layers) {
     if(size == max) {
       size = 0
       cursor = (cursor + 1) % length 
-      layers[cursor] = {}
+      layers[cursor] = Object.create(null)
       layer = layers[cursor]
     }
     size++
