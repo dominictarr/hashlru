@@ -26,14 +26,3 @@ module.exports = function (max) {
     }
   }
 }
-
-
-
-
-
-
-
-
-
-
-
