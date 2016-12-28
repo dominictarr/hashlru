@@ -1,28 +1,37 @@
-module.exports = function (max) {
-  var size = 0, cache = {}, _cache = {}
+module.exports = function (max, layers) {
+  if (!layers) layers = 2
+  var cursor = 0, length = layers
+  var size = 0, layers = []
 
-  function update (key, value) {
-    cache[key] = value
-    size ++
-    if(size >= max) {
+  for(var layer = length; layer--;)
+    layers[layer] = Object.create(null)
+
+  layer = layers[cursor]
+
+  function expand() {
+    if(size == max) {
       size = 0
-      _cache = cache
-      cache = {}
+      cursor = (cursor + 1) % length 
+      layers[cursor] = Object.create(null)
+      layer = layers[cursor]
     }
+    size++
   }
 
   return {
     get: function (key) {
-      var v = cache[key]
-      if(v) return v
-      if(v = _cache[key]) {
-        update(key, v)
-        return v
+      var value = layer[key]
+      if(value) return value
+      for(var o = length + cursor, n = 0; ++n < length;) {
+        if(value = layers[--o % length][key]) {
+          expand()
+          return layer[key] = value
+        }
       }
     },
     set: function (key, value) {
-      if(cache[key]) cache[key] = value
-      else update(key, value)
+      if (!layer[key]) expand()
+      layer[key] = value
     }
   }
 }
