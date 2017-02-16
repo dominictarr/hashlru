@@ -26,5 +26,7 @@ lru.set('test2', 'test2')
 assert.equal(lru.get('test2'), 'test2')
 
 // object purity:
-
 assert.equal(lru.get('constructor'), undefined)
+
+// max validation:
+assert.throws(HLRU)

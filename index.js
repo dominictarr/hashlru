@@ -1,4 +1,7 @@
 module.exports = function (max) {
+
+  if (!max) throw Error('hashlru must have a max value, of type number, greater than 0')
+
   var size = 0, cache = Object.create(null), _cache = Object.create(null)
 
   function update (key, value) {
