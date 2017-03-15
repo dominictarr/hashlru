@@ -34,3 +34,8 @@ assert.equal(lru.get('constructor'), undefined)
 
 // max validation:
 assert.throws(HLRU)
+
+// remove:
+assert.equal(lru.has('test2'), true)
+lru.remove('test2')
+assert.equal(lru.has('test2'), false)

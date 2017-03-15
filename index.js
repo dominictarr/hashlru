@@ -18,6 +18,13 @@ module.exports = function (max) {
     has: function (key) {
       return key in cache || key in _cache
     },
+    remove: function (key) {
+      if(key in cache) {
+        delete cache[key]
+        size --
+      }
+      delete _cache[key]
+    },
     get: function (key) {
       var v = cache[key]
       if(v) return v
