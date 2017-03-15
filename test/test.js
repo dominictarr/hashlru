@@ -7,6 +7,10 @@ lru.set('test', 'test')
 
 assert.equal(lru.get('test'), 'test')
 
+// has:
+assert.equal(lru.has('test'), true)
+assert.equal(lru.has('blah'), false)
+
 // update:
 lru.set('test', 'test2')
 

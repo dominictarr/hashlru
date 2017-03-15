@@ -15,6 +15,9 @@ module.exports = function (max) {
   }
 
   return {
+    has: function (key) {
+      return key in cache || key in _cache
+    },
     get: function (key) {
       var v = cache[key]
       if(v) return v
