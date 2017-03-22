@@ -30,3 +30,6 @@ assert.equal(lru.get('constructor'), undefined)
 
 // max validation:
 assert.throws(HLRU)
+
+//set returns value
+assert.equal(lru.set('test5', 'test-foo-bar'), 'test-foo-bar')

@@ -26,6 +26,7 @@ module.exports = function (max) {
     set: function (key, value) {
       if(cache[key]) cache[key] = value
       else update(key, value)
+      return value
     }
   }
 }
