@@ -16,26 +16,32 @@ module.exports = function (max) {
 
   return {
     has: function (key) {
-      return key in cache || key in _cache
+      return cache[key] !== undefined || _cache[key] !== undefined
     },
     remove: function (key) {
-      if(key in cache) {
-        delete cache[key]
-        size --
-      }
-      delete _cache[key]
+      if(cache[key] !== undefined)
+        cache[key] = undefined
+      if(_cache[key] !== undefined)
+        _cache[key] = undefined
     },
     get: function (key) {
       var v = cache[key]
-      if(v) return v
+      if(v !== undefined) return v
       if(v = _cache[key]) {
         update(key, v)
         return v
       }
     },
     set: function (key, value) {
-      if(cache[key]) cache[key] = value
+      if(cache[key] !== undefined) cache[key] = value
       else update(key, value)
     }
   }
 }
+
+
+
+
+
+
+
