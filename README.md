@@ -80,6 +80,14 @@ Returns the value in the cache.
 
 update the value for key.
 
+### lru.has(key) => boolean
+
+Checks if the `key` is in the cache.
+
+### lru.remove(key)
+
+Removes the `key` from the cache.
+
 ## License
 
 MIT
