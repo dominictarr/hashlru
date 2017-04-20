@@ -35,6 +35,10 @@ module.exports = function (max) {
     set: function (key, value) {
       if(cache[key] !== undefined) cache[key] = value
       else update(key, value)
+    },
+    clear: function () {
+      cache = Object.create(null)
+      _cache = Object.create(null)
     }
   }
 }

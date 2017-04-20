@@ -88,7 +88,14 @@ Checks if the `key` is in the cache.
 
 Removes the `key` from the cache.
 
+### lru.clear()
+
+Empties the entire cache.
+
 ## License
 
 MIT
+
+
+
 
