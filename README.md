@@ -80,6 +80,10 @@ Returns the value in the cache.
 
 update the value for key.
 
+### lru.clear()
+
+Empties the entire cache.
+
 ## License
 
 MIT

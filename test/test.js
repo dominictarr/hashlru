@@ -39,3 +39,8 @@ assert.throws(HLRU)
 assert.equal(lru.has('test2'), true)
 lru.remove('test2')
 assert.equal(lru.has('test2'), false)
+
+// clear
+assert.equal(lru.has('test'), true)
+lru.clear()
+assert.equal(lru.has('test'), false)
