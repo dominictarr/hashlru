@@ -72,9 +72,9 @@ so N/N is still 1.
 
 initialize a lru object.
 
-### lru.get (key) => value | null
+### lru.get (key) => value | undefined
 
-Returns the value in the cache.
+Returns the value in the cache, or `undefined` if the value is not in the cache.
 
 ### lru.set(key, value)
 
