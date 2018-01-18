@@ -27,7 +27,7 @@ module.exports = function (max) {
     get: function (key) {
       var v = cache[key]
       if(v !== undefined) return v
-      if(v = _cache[key]) {
+      if((v = _cache[key]) !== undefined) {
         update(key, v)
         return v
       }
