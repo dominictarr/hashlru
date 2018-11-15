@@ -1,7 +1,7 @@
 {
   "name": "hashlru",
   "description": "simpler faster substitute for LRU",
-  "version": "2.2.1",
+  "version": "2.3.1",
   "homepage": "https://github.com/dominictarr/hashlru",
   "repository": {
     "type": "git",
@@ -11,6 +11,7 @@
   "devDependencies": {
     "istanbul": "^0.4.5"
   },
+  "types": "index.d.ts",
   "scripts": {
     "test": "set -e; for t in test/*.js; do node $t; done",
     "cov": "istanbul cover test/*.js"
