@@ -19,9 +19,8 @@ module.exports = function (max) {
       return cache.has(key) || _cache.has(key)
     },
     remove: function (key) {
-      var deleted = cache.delete(key)
-      var _deleted = _cache.delete(key)
-      return deleted || _deleted
+      cache.delete(key)
+      _cache.delete(key)
     },
     get: function (key) {
       if (cache.has(key)) {

@@ -44,3 +44,10 @@ assert.equal(lru.has('test2'), false)
 assert.equal(lru.has('test'), true)
 lru.clear()
 assert.equal(lru.has('test'), false)
+
+// object keys
+// set-get:
+var o = {}
+lru.set(o, 'test')
+
+assert.equal(lru.get(o), 'test')
