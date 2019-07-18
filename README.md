@@ -28,6 +28,8 @@ Then I realized with this pattern, you _don't actually need_ the linked list any
 This makes a N-2N least recently used cache very very simple. This both has performance benefits,
 and it's also very easy to verify it's correctness.
 
+Over time the `Map` constructor became faster than plain objects, which meant there was no longer a need to work around the delete issue but there are still significant speed benefits to using this approach. 
+
 This algorithm does not give you an ordered list of the N most recently used items,
 but you do not really need that! The property of dropping the least recent items is still preserved.
 

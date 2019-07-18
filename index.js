@@ -2,43 +2,43 @@ module.exports = function (max) {
 
   if (!max) throw Error('hashlru must have a max value, of type number, greater than 0')
 
-  var size = 0, cache = Object.create(null), _cache = Object.create(null)
+  var size = 0, cache = new Map(), _cache = new Map()
 
   function update (key, value) {
-    cache[key] = value
+    cache.set(key, value)
     size ++
     if(size >= max) {
       size = 0
       _cache = cache
-      cache = Object.create(null)
+      cache = new Map()
     }
   }
 
   return {
     has: function (key) {
-      return cache[key] !== undefined || _cache[key] !== undefined
+      return cache.has(key) || _cache.has(key)
     },
     remove: function (key) {
-      if(cache[key] !== undefined)
-        cache[key] = undefined
-      if(_cache[key] !== undefined)
-        _cache[key] = undefined
+      cache.delete(key)
+      _cache.delete(key)
     },
     get: function (key) {
-      var v = cache[key]
-      if(v !== undefined) return v
-      if((v = _cache[key]) !== undefined) {
+      if (cache.has(key)) {
+        return cache.get(key)
+      }
+      if (_cache.has(key)) {
+        var v = _cache.get(key)
         update(key, v)
         return v
       }
     },
     set: function (key, value) {
-      if(cache[key] !== undefined) cache[key] = value
+      if (cache.has(key)) cache.set(key, value)
       else update(key, value)
     },
     clear: function () {
-      cache = Object.create(null)
-      _cache = Object.create(null)
+      cache = new Map()
+      _cache = new Map()
     }
   }
 }

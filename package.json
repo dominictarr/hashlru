@@ -7,7 +7,6 @@
     "type": "git",
     "url": "git://github.com/dominictarr/hashlru.git"
   },
-  "dependencies": {},
   "devDependencies": {
     "istanbul": "^0.4.5"
   },
