@@ -68,15 +68,19 @@ writes when the caches are rotated, that write will require N operations (to cle
 This still averages out to O(1) but it does cost O(N) but only every N writes (except for updates)
 so N/N is still 1.
 
-## HashLRU (max) => lru
+## HashLRU(max) => lru
 
 initialize a lru object.
 
-### lru.get (key) => value | undefined
+### lru.get(key) => value | undefined
+
+The key may be strings, numbers or objects (by reference).
 
 Returns the value in the cache, or `undefined` if the value is not in the cache.
 
 ### lru.set(key, value)
+
+The key may be strings, numbers or objects (by reference).
 
 update the value for key.
 
