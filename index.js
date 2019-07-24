@@ -25,6 +25,7 @@ module.exports = function (max) {
         _cache[key] = undefined
     },
     get: function (key) {
+      if (!cache.hasOwnProperty(key) && !_cache.hasOwnProperty(key)) return
       var v = cache[key]
       if(v !== undefined) return v
       if((v = _cache[key]) !== undefined) {
